@@ -3,6 +3,8 @@ from creational.singleton import Singleton
 import eqswindow
 import footerwindow
 import conwerterwindow
+import decoratorwindow
+
 
 class Window(Tk, Singleton):
     def init(self):
@@ -17,6 +19,9 @@ class Window(Tk, Singleton):
         self.button3 = Button(self, text='audio play', command=self.create_audio)
         self.button3.pack(expand=True)
 
+        self.button4 = Button(self, text='decorator play', command=self.decorator_play)
+        self.button4.pack(expand=True)
+
     def create_window_eqs(self):
         global extra_window
         extra_window = eqswindow.Extra()
@@ -28,6 +33,10 @@ class Window(Tk, Singleton):
     def create_audio(self):
         global extra_window
         extra_window = conwerterwindow.Extra()
+
+    def decorator_play(self):
+        global extra_window
+        extra_window = decoratorwindow.Extra()
 
     def __init__(self):
         print('calling from __init__')
