@@ -6,6 +6,7 @@ import conwerterwindow
 import decoratorwindow
 import renderwindow
 import iteratorwindow
+import groupwindow
 
 
 class Window(Tk, Singleton):
@@ -30,6 +31,9 @@ class Window(Tk, Singleton):
         self.button6 = Button(self, text='search', command=self.create_iterator)
         self.button6.pack(expand=True)
 
+        self.button7 = Button(self, text='group', command=self.create_group)
+        self.button7.pack(expand=True)
+
     def create_window_eqs(self):
         global extra_window
         extra_window = eqswindow.Extra()
@@ -53,6 +57,10 @@ class Window(Tk, Singleton):
     def create_iterator(self):
         global extra_window
         extra_window = iteratorwindow.Extra()
+
+    def create_group(self):
+        global extra_window
+        extra_window = groupwindow.Extra()
 
     def __init__(self):
         print('calling from __init__')
